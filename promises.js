@@ -47,4 +47,45 @@ promise4
   .catch(function (error) {
     console.log(error);
   })
-  .finally(() => console.log("The promise is either resolved or rejected"))
+  .finally(() => console.log("The promise is either resolved or rejected"));
+
+const promise5 = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    let error = true;
+    if (!error) {
+      resolve({ username: "javascript", password: "245" });
+    } else {
+      reject("ERROR: Something js went wrongg");
+    }
+  }, 1000);
+});
+async function consumepromise5() {
+  try {
+    const response = await promise5;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+consumepromise5();
+
+async function getallusers(){
+    try {
+        const response = await fetch('https://api.github.com/users/bikashofficial99')
+        const data = await response.json()
+        console.log(data)   
+    } catch (error) {
+        console.log(error)
+    }
+    
+}
+getallusers()
+
+fetch('https://api.github.com/users/bikashofficial99')
+.then((response) =>{
+return response.json()
+})
+.then((data) =>{
+    console.log(data);
+})
+.catch((error) => console.log(error))
