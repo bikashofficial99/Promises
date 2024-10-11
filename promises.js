@@ -17,3 +17,12 @@ setTimeout(function(){
  }).then(function(){
     console.log("Async 2 resolved");
  })
+
+ const promise3 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+        resolve({username:"Biku",email:"bikash.acvharya614@gmail.com"})
+    },1000)
+ })
+ promise3.then(function(user){
+console.log(user)
+ })
