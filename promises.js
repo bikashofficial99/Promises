@@ -89,3 +89,13 @@ return response.json()
     console.log(data);
 })
 .catch((error) => console.log(error))
+getallusers()
+
+fetch('https://api.github.com/users/bikashofficial99')
+.then((response) =>{
+return response.json()
+})
+.then((data) =>{
+    console.log(data);
+})
+.catch((error) => console.log(error))
